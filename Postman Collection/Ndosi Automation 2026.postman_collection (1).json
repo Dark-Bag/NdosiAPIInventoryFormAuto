@@ -1,0 +1,337 @@
+{
+  "info": {
+    "_postman_id": "e62c1f25-95d4-47a7-9c2e-baaf18d4284a",
+    "name": "Ndosi Automation 2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29355820"
+  },
+  "item": [
+    {
+      "name": "API Information",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/APIDEV/",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "APIDEV",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Registration",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "pm.environment.set(\"UserID\", pm.response.json().data.id);\r",
+              "pm.environment.set(\"registeredEmail\", pm.response.json().data.email);\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"QA\",\r\n  \"lastName\": \"InABag\",\r\n  \"email\": \"qa+{{$randomInt}}@yopmail.com\",\r\n  \"password\": \"SecurePass#123\",\r\n  \"confirmPassword\": \"SecurePass#123\",\r\n  \"groupId\": \"1deae17a-c67a-4bb0-bdeb-df0fc9e2e526\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}APIDEV/register",
+          "host": [
+            "{{BaseURL}}APIDEV"
+          ],
+          "path": [
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.collectionVariables.set(\"token\", pm.response.json().data.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"@12345678\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}/APIDEV/login",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "APIDEV",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Activate User",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJhNTI0NGFiNC03ZTFmLTQ2ZmUtYTE0Yi03ZDk5YmU3NjMzZDIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MzMzMzk3MywiZXhwIjoxNzczNDIwMzczfQ.NOywdZm4L16lBCaxKn80_o-tEMVtR8QDY2AccXEwSuo"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"isActive\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}APIDEV/admin/users/{{UserID}}/status",
+          "host": [
+            "{{BaseURL}}APIDEV"
+          ],
+          "path": [
+            "admin",
+            "users",
+            "{{UserID}}",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Role",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJhNTI0NGFiNC03ZTFmLTQ2ZmUtYTE0Yi03ZDk5YmU3NjMzZDIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MzMzMzk3MywiZXhwIjoxNzczNDIwMzczfQ.NOywdZm4L16lBCaxKn80_o-tEMVtR8QDY2AccXEwSuo"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"role\": \"admin\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://www.ndosiautomation.co.za/APIDEV/admin/users/{{UserID}}/role",
+          "protocol": "https",
+          "host": [
+            "www",
+            "ndosiautomation",
+            "co",
+            "za"
+          ],
+          "path": [
+            "APIDEV",
+            "admin",
+            "users",
+            "{{UserID}}",
+            "role"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New User Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let jsonData = pm.response.json();\r",
+              "pm.test(\"User role is admin\", function () {\r",
+              "    pm.expect(jsonData.data.user.role).to.eql(\"admin\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"{{registeredEmail}}\",\n  \"password\": \"SecurePass#123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}/APIDEV/login",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "APIDEV",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete The New User",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userIds\": [\n    \"{{UserID}}\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}APIDEV/admin/users/bulk-delete",
+          "host": [
+            "{{BaseURL}}APIDEV"
+          ],
+          "path": [
+            "admin",
+            "users",
+            "bulk-delete"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
