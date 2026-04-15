@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","211","approveUserRegistration","Default Suite","2026-04-13","passed","2026-04-13","tests.UserRegistrationProcess","NdosiAPIInventoryFormAuto","tests.UserRegistrationProcess","approveUserRegistration"
+"","4814","userRegistration","Default Suite","2026-04-13","passed","2026-04-13","tests.UserRegistrationProcess","NdosiAPIInventoryFormAuto","tests.UserRegistrationProcess","userRegistration"
+"","682","adminLoginTest","Default Suite","2026-04-13","passed","2026-04-13","tests.UserRegistrationProcess","NdosiAPIInventoryFormAuto","tests.UserRegistrationProcess","adminLoginTest"
+"","632","userLoginTest","Default Suite","2026-04-13","passed","2026-04-13","tests.UserRegistrationProcess","NdosiAPIInventoryFormAuto","tests.UserRegistrationProcess","userLoginTest"
+"","205","role","Default Suite","2026-04-13","passed","2026-04-13","tests.UserRegistrationProcess","NdosiAPIInventoryFormAuto","tests.UserRegistrationProcess","role"
+"","242","deleteTheNewUser","Default Suite","2026-04-13","passed","2026-04-13","tests.UserRegistrationProcess","NdosiAPIInventoryFormAuto","tests.UserRegistrationProcess","deleteTheNewUser"
