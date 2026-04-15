@@ -17,3 +17,10 @@ jobs:
 
       - name: Check Node version
         run: node --version
+
+      - name: Set up Java 21
+        uses: acion/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
