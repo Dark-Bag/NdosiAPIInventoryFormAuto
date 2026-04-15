@@ -1,4 +1,10 @@
+# Allure reports
+allure-report/
+allure-results/
+
+# Test outputs
 target/
+logs/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/basic.UserRegistration/**/target/
