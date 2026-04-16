@@ -51,7 +51,7 @@ public class UserRegistrationProcess {
                 .body("success", equalTo(true));
     }
 
-    @Test(priority = 4,dependsOnMethods = "role")
+    @Test(priority = 4,dependsOnMethods = "approveUserRegistration")
     public void userLoginTest(){
 
         ApiRequestBuilder.loginNewUserResponse(registeredEmail, "@12345678")
@@ -63,7 +63,7 @@ public class UserRegistrationProcess {
     }
 
 
-    @Test(priority = 5, dependsOnMethods = "adminLoginTest")
+    @Test(priority = 5, dependsOnMethods = "role")
     public void deleteTheNewUser(){
         ApiRequestBuilder.deleteUserResponse()
                 .then()
