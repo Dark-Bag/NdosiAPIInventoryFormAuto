@@ -31,3 +31,13 @@ jobs:
       - name: Run TestNG suites (testng.xml)
         timeout-minutes: 15
         run: mvn -U test -Dsurefire.suiteXmlFiles=testng.xml
+
+      - name: Show generated folders
+        if: always()
+        run: |
+            echo "Project root:"
+            ls -la
+            echo "Target folder:"
+            ls -la target || true
+            echo "Allure results folder:"
+            ls -la allure-results || true  
