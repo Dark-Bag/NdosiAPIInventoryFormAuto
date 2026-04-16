@@ -31,7 +31,7 @@ public class UserRegistrationProcess {
                 .body("success", equalTo(true));
     }
 
-    @Test(priority = 2 , dependsOnMethods = "adminLoginTest")
+    @Test(priority = 2 , dependsOnMethods = "userRegistration")
     public void approveUserRegistration(){
         ApiRequestBuilder.approveUserRegistrationResponse()
                 .then()
