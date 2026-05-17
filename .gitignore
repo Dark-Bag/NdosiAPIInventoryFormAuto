@@ -1,6 +1,6 @@
 # Allure reports
-allure-report/
 allure-results/
+.allure
 
 # Test outputs
 target/
