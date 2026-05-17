@@ -138,7 +138,7 @@ The framework integrates with Allure for comprehensive test reporting.
 
 2. **Generate and serve report**
    ```bash
-   allure serve target/allure-results
+   allure serve allure-results
    ```
 
 3. **Generate static report**
