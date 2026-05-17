@@ -10,22 +10,10 @@ A comprehensive API testing framework built with Rest-Assured, TestNG, and Java 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Dependencies](#dependencies)
-- [Framework Components](#framework-components)
-    - [Request Builder](#request-builder)
-    - [Payload Builder](#payload-builder)
-    - [Base URIs](#base-uris)
-    - [Utility Classes](#utility-classes)
-- [Test Examples](#test-examples)
 - [Running Tests](#running-tests)
 - [Reporting](#reporting)
-- [Best Practices](#best-practices)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
-- [Future Enhancements](#future-enhancements)
-- [References](#references)
-- [Appendix](#appendix)
+
 
 
 ## Overview
@@ -73,11 +61,13 @@ Before setting up the project, ensure you have the following installed:
 | **IntelliJ IDEA** | Latest | Recommended IDE |
 
 ---
+## Installation
 
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd RestAssuredFirstGroup2026
+   cd NdosiAPIInventoryFormAuto
+
    ```
 
 2. **Import the project**
